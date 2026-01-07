@@ -1,8 +1,9 @@
-import { useState } from 'react'
+
 import './App.css'
+import Board from './component/Board'
 
 function App() {
-  return <h1>The App</h1>
+  return <Board />
 }
 
 export default App
