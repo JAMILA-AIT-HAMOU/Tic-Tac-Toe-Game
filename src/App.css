@@ -5,10 +5,34 @@
   font-size:1.3rem;
   font-weight:545;
 }
+#status{
+  font-size: 1.5rem;
+}
+
 span{
   background-color:white;
   padding:2px 6px;
   border-radius:3px;
+}
+.scoreboard{
+  display: flex;
+  gap:1rem;
+  color:white;
+  background-color:white;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 5px;
+  
+}
+.scoreboard>p{
+  margin: 0;
+  background-color:rgb(76, 172, 196);
+  box-shadow:0 0 8px rgb(6, 91, 112);
+  background-color:rgb(6, 91, 112);
+  padding: 2px 5px;
+  border-radius: 5px;
+  
 }
 .board{
   display:grid;
@@ -17,7 +41,7 @@ span{
   grid-template-columns:repeat(3, 1fr);
   grid-template-rows:repeat(3, 1fr);
   gap:7px;
-  margin-top: 1rem;
+  margin-top:1.5rem;
 }
 button{
   background-color:rgb(221, 217, 217);
@@ -36,13 +60,18 @@ button:hover{
   background-color:rgb(190, 190, 190);
   cursor:pointer;
 }
+.reset{
+
+  display: flex;
+  gap: 1rem;
+  width:100%;
+  margin-top:1.5rem;
+}
 .reset-btn{
   
   box-shadow:0 0 10px white;
   background-color:rgb(6, 91, 112);
   color:white;
-  width:50%;
-  margin-top:1.5rem;
   padding:0.8rem;
   font-size:1.2rem;
   transition:0.4s ease-end-out;
@@ -52,4 +81,5 @@ button:hover{
   color:black;
   cursor:pointer;
 }
+
 
