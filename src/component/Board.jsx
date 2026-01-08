@@ -5,6 +5,7 @@ export default function Board() {
   const [winner, setWinner] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState({ X: 0, O: 0 });
+  const [winnningLine, setWinningLine]=useState([])
 
   const winningLines = [
     [0, 1, 2],
@@ -21,7 +22,7 @@ export default function Board() {
     for (let line of winningLines) {
       const [a, b, c] = line;
       if (board[a] && board[a] === board[b] && board[b] === board[c]) {
-        return board[a];
+        return {winner:board[a], line};
       }
     }
     return null;
@@ -30,12 +31,14 @@ export default function Board() {
   function checkGameStatus(board) {
     const playerWin = checkWinner(board);
     if (playerWin) {
-      return { gameOver: true, winner: playerWin };
+      return { gameOver: true, winner: playerWin.winner,
+        line:playerWin.line,
+       };
     }
     if (!board.includes("")) {
-      return { gameOver: true, winner: "draw" };
+      return { gameOver: true, winner: "draw", line:[] };
     }
-    return { gameOver: false, winner: null };
+    return { gameOver: false, winner: null, line:[]};
   }
 
   function handleBtn(index) {
@@ -52,6 +55,8 @@ export default function Board() {
     setPlayersArr(newBoard);
     setGameOver(status.gameOver);
     setWinner(status.winner);
+    setWinningLine(status.line)
+    
 
     if (status.gameOver && status.winner !== "draw") {
       setScore((prev) => ({
@@ -70,6 +75,7 @@ export default function Board() {
     setIsXTurn(true);
     setWinner(null);
     setGameOver(false);
+    setWinningLine([])
   };
   const resetScore=()=>{
     setScore({ X: 0, O: 0 })
@@ -105,7 +111,7 @@ export default function Board() {
         {playersArr.map((value, index) => (
           <button
             aria-label={`Square ${index}`}
-            className="square"
+            className={`square ${winnningLine.includes(index)? "win":""}`}
             key={index}
             onClick={() => {
               handleBtn(index);

@@ -8,7 +8,15 @@
 #status{
   font-size: 1.5rem;
 }
+.win{
+  background-color:rgb(48, 163, 9);
+  color: white;
+  font-weight: bold;
+  border:1px solid rgb(6, 91, 112);
+  transition: 0.5s ease-in-out;
+  transform: scale(1.13);
 
+}
 span{
   background-color:white;
   padding:2px 6px;
