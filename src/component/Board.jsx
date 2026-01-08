@@ -92,8 +92,12 @@ export default function Board() {
         <Confetti 
           width={width}
           height={height}
-          numberOfPieces={300}
+          numberOfPieces={5000}
           recycle={false}
+          gravity={0.25}
+          colors={[
+            "rgba(245, 247, 117, 1)", "rgba(76, 172, 196, 0.7)", "#ffffffff"
+          ]}
         />
       )}
       <h1>Tic-Tac-Toe Game</h1>
