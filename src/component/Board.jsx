@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Confetti from "react-confetti"
+
+
 export default function Board() {
   const [playersArr, setPlayersArr] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
@@ -7,6 +10,7 @@ export default function Board() {
   const [score, setScore] = useState({ X: 0, O: 0 });
   const [winnningLine, setWinningLine]=useState([])
 
+  const {innerWidth:width, innerHeight:height}= window;
   const winningLines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -84,6 +88,14 @@ export default function Board() {
 
   return (
     <section>
+      {gameOver && winner && winner !== "draw" && (
+        <Confetti 
+          width={width}
+          height={height}
+          numberOfPieces={300}
+          recycle={false}
+        />
+      )}
       <h1>Tic-Tac-Toe Game</h1>
 
       <div id="status">
