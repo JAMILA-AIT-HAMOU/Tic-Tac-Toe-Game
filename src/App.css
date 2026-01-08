@@ -68,6 +68,10 @@ button:hover{
   background-color:rgb(190, 190, 190);
   cursor:pointer;
 }
+.square:disabled{
+  cursor: not-allowed;
+  opacity: 0.9;
+}
 .reset{
 
   display: flex;
